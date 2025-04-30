@@ -1,0 +1,325 @@
+/* Register page main container */
+.register-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: calc(100vh - 140px); /* Adjust for navbar and footer */
+  background-color: #f5f7fa;
+}
+
+/* Register form card */
+.register-card {
+  display: flex;
+  flex-direction: column;
+  padding: 40px;
+  max-width: 500px;
+  width: 100%;
+  margin: auto;
+  background-color: white;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  animation: slideInFromLeft 0.8s ease-out;
+  position: relative;
+  z-index: 2;
+}
+
+/* Register card header */
+.register-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.register-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.register-logo-icon {
+  font-size: 28px;
+  margin-right: 10px;
+  animation: bounce 2s infinite;
+}
+
+.register-header h2 {
+  font-size: 28px;
+  color: #004080;
+  margin: 0;
+}
+
+.register-header h3 {
+  font-size: 24px;
+  color: #333;
+  margin: 10px 0;
+}
+
+.register-header p {
+  color: #666;
+  margin-top: 10px;
+}
+
+/* Form styling */
+.register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  color: #555;
+}
+
+.input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-icon {
+  position: absolute;
+  left: 12px;
+  color: #999;
+  font-size: 16px;
+}
+
+.register-form input {
+  width: 100%;
+  padding: 12px 12px 12px 40px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+.register-form input:focus {
+  border-color: #2e8b57;
+  box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.2);
+  outline: none;
+}
+
+/* Role selection */
+.role-selection {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.role-selection label {
+  font-size: 14px;
+  color: #555;
+}
+
+.role-selection input {
+  margin-right: 8px;
+}
+
+/* Register button */
+.register-button {
+  background-color: #2e8b57;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 14px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.register-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: left 0.7s ease;
+}
+
+.register-button:hover {
+  background-color: #3aa76d;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(46, 139, 87, 0.3);
+}
+
+.register-button:hover::before {
+  left: 100%;
+}
+
+.register-button:active {
+  transform: translateY(0);
+}
+
+.register-button.loading {
+  cursor: not-allowed;
+  background-color: #6eb394;
+}
+
+/* Loading spinner */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: white;
+  animation: spin 1s linear infinite;
+}
+
+/* Register footer */
+.register-footer {
+  margin-top: 30px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.register-footer p {
+  color: #666;
+  margin: 0;
+}
+
+.login-link {
+  color: #004080;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  padding: 8px 16px;
+  border: 2px solid #004080;
+  border-radius: 8px;
+  display: inline-block;
+}
+
+.login-link:hover {
+  background-color: #004080;
+  color: white;
+  transform: translateY(-2px);
+}
+
+/* Error message */
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  padding: 12px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  animation: shake 0.5s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.error-icon {
+  font-size: 18px;
+}
+
+/* Animations */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+@keyframes shake {
+  10%, 90% {
+    transform: translateX(-1px);
+  }
+  20%, 80% {
+    transform: translateX(2px);
+  }
+  30%, 50%, 70% {
+    transform: translateX(-2px);
+  }
+  40%, 60% {
+    transform: translateX(2px);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 1024px) {
+  .register-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .register-card {
+    max-width: 90%;
+    margin: 40px auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .register-card {
+    padding: 30px 20px;
+    max-width: 95%;
+    margin: 20px auto;
+  }
+  
+  .role-selection {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .register-header h2 {
+    font-size: 24px;
+  }
+  
+  .register-header h3 {
+    font-size: 20px;
+  }
+}

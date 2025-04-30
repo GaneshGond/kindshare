@@ -1,0 +1,222 @@
+/* Base styles */
+.home {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Hero Section */
+.hero-section {
+  margin-top: 2rem;
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+  border-radius: 15px;
+  margin-bottom: 60px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.hero-section:hover {
+  transform: translateY(-5px);
+}
+
+.animated-title {
+  font-size: 3rem;
+  color: #004080;
+  margin-bottom: 15px;
+  position: relative;
+  animation: fadeIn 1s ease-out;
+}
+
+.tagline {
+  font-size: 1.4rem;
+  color: #555;
+  margin-bottom: 40px;
+  animation: slideUp 1s ease-out;
+}
+
+/* CTA Buttons */
+.cta-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.cta-button {
+  background-color: #2e8b57;
+  color: white;
+  font-size: 1.1rem;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 8px rgba(46, 139, 87, 0.3);
+}
+
+.cta-button:hover {
+  background-color: #3aa76d;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(46, 139, 87, 0.4);
+}
+
+.cta-button.pulse {
+  animation: pulse 1.5s infinite;
+}
+
+.learn-more-button {
+  background-color: transparent;
+  color: #2e8b57;
+  font-size: 1.1rem;
+  border: 2px solid #2e8b57;
+  padding: 10px 25px;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.learn-more-button:hover {
+  background-color: rgba(46, 139, 87, 0.1);
+  transform: translateY(-3px);
+}
+
+/* Features Section */
+.features-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+  margin-bottom: 60px;
+}
+
+.feature-card {
+  background-color: white;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+}
+
+.feature-card h3 {
+  color: #004080;
+  margin-bottom: 10px;
+  font-size: 1.4rem;
+}
+
+.feature-card p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* Impact Section */
+.impact-section {
+  text-align: center;
+  padding: 60px 20px;
+  background-color: #f7f9fc;
+  border-radius: 15px;
+  margin-bottom: 60px;
+}
+
+.impact-section h2 {
+  color: #004080;
+  font-size: 2.2rem;
+  margin-bottom: 40px;
+}
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #2e8b57;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  color: #666;
+  font-size: 1.1rem;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(46, 139, 87, 0.3);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(46, 139, 87, 0.4);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 4px 8px rgba(46, 139, 87, 0.3);
+  }
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .animated-title {
+    font-size: 2.2rem;
+  }
+  
+  .tagline {
+    font-size: 1.2rem;
+  }
+  
+  .features-section {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-section {
+    padding: 60px 15px;
+  }
+  
+  .stat-number {
+    font-size: 2rem;
+  }
+}

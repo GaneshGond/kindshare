@@ -1,0 +1,46 @@
+.volunteer-dashboard {
+    max-width: 700px;
+    margin: auto;
+    padding: 20px;
+  }
+  
+  .profile-section {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .profile-photo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+  }
+  
+  .upload-section,
+  .inbox-section {
+    margin-bottom: 30px;
+  }
+  
+  .upload-section input {
+    margin-top: 10px;
+  }
+  
+  .preview-photo img {
+    width: 100%;
+    max-width: 300px;
+    margin-top: 10px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+  }
+  
+  .inbox-section ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  
+  .inbox-section li {
+    padding: 10px;
+    background: #f2f2f2;
+    margin-bottom: 10px;
+    border-radius: 5px;
+  }
+  
