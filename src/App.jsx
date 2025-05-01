@@ -35,7 +35,7 @@ import React, { useState } from "react";
 import { Routes, Route, useNavigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
-
+import Gallery from "./pages/Gallery"; 
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
@@ -62,7 +62,9 @@ function App() {
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
         <Route path="/choose-donation" element={<ChooseDonation />} />
+        {/* <Route path="/gallery" element={<Gallery />} /> */}
 
+        <Route path="/gallery" element={<Gallery currentUser={currentUser} />} />
         <Route
           path="/donor-dashboard"
           element={
