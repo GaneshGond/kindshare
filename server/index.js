@@ -79,8 +79,12 @@ app.use("/api", authRoutes);
 
 const donationRoutes = require("./routes/donationRoutes");
 app.use(donationRoutes);
+app.use("/api/donations", donationRoutes);
 
 // Start server
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+
+
 

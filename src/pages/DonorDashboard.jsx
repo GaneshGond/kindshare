@@ -345,9 +345,9 @@ const DonorDashboard = ({ user }) => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
+    console.log(user); // Log the user object to check if fullName is available
     try {
       const res = await fetch("http://localhost:5000/api/donations", {
         method: "POST",
@@ -355,10 +355,10 @@ const DonorDashboard = ({ user }) => {
         body: JSON.stringify({
           ...formData,
           donorUsername: user.username,
-          donorName: user.fullName,
+          donorName: user.fullName
         }),
       });
-
+  
       if (res.ok) {
         alert("Donation submitted successfully!");
         setFormData({ foodType: "", quantity: "", location: "" });

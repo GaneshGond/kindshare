@@ -28,4 +28,22 @@ router.get("/api/donations", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+  try {
+    const { location } = req.query;
+    let donations;
+
+    if (location) {
+      donations = await Donation.find({ location });
+    } else {
+      donations = await Donation.find();
+    }
+
+    res.json(donations);
+  } catch (err) {
+    console.error("Error fetching donations:", err);
+    res.status(500).json({ error: "Internal server error" });
+  }
+});
+
 module.exports = router;
