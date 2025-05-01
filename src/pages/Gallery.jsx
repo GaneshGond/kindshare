@@ -1,64 +1,11 @@
-// import React, { useEffect, useState } from "react";
-// import "../styles/Gallery.css";
-
-// const Gallery = () => {
-//   const [photos, setPhotos] = useState([]);
-
-//   useEffect(() => {
-//     // Load photos from localStorage
-//     const loadPhotos = () => {
-//       const storedPhotos = localStorage.getItem('donatedPhotos');
-//       if (storedPhotos) {
-//         setPhotos(JSON.parse(storedPhotos));
-//       }
-//     };
-
-//     loadPhotos();
-
-//     // Set up an event listener to reload when localStorage changes
-//     window.addEventListener('storageUpdate', loadPhotos);
-
-//     return () => {
-//       window.removeEventListener('storageUpdate', loadPhotos);
-//     };
-//   }, []);
-
-//   return (
-//     <div className="gallery-container">
-//       <h2>Donated Food Gallery</h2>
-//       {photos.length === 0 ? (
-//         <p className="no-photos-message">No donations have been uploaded yet.</p>
-//       ) : (
-//         <div className="photo-grid">
-//           {photos.map((photo, index) => (
-//             <div key={index} className="photo-card">
-//               <div className="photo-image-container">
-//                 <img src={photo.imageUrl} alt="Donated Food" className="photo-image" />
-//               </div>
-//               <div className="photo-info">
-//                 <p className="uploader-name"><strong>Uploaded by:</strong> {photo.uploadedBy}</p>
-//                 <p className="upload-date">{new Date(photo.uploadDate).toLocaleDateString()}</p>
-//                 {photo.description && <p className="photo-description">{photo.description}</p>}
-//               </div>
-//             </div>
-//           ))}
-//         </div>
-//       )}
-//     </div>
-//   );
-// };
-
-// export default Gallery;
-
-
 import React, { useEffect, useState } from "react";
 import "../styles/Gallery.css";
 
 const Gallery = ({ currentUser }) => {
   const [photos, setPhotos] = useState([]);
+  const [selectedImage, setSelectedImage] = useState(null); // for modal view
 
   useEffect(() => {
-    // Load photos from localStorage
     const loadPhotos = () => {
       const storedPhotos = localStorage.getItem('donatedPhotos');
       if (storedPhotos) {
@@ -67,8 +14,6 @@ const Gallery = ({ currentUser }) => {
     };
 
     loadPhotos();
-
-    // Set up an event listener to reload when localStorage changes
     window.addEventListener('storageUpdate', loadPhotos);
 
     return () => {
@@ -76,10 +21,7 @@ const Gallery = ({ currentUser }) => {
     };
   }, []);
 
-  // Function to delete a photo
   const handleDeletePhoto = (photoId) => {
-    // Only allow deletion if the user is the one who uploaded the photo
-    // or if the user is an admin (if you implement admin roles later)
     const photoToDelete = photos.find(photo => photo.id === photoId);
     
     if (!currentUser || (photoToDelete.username !== currentUser.username)) {
@@ -104,7 +46,12 @@ const Gallery = ({ currentUser }) => {
           {photos.map((photo, index) => (
             <div key={index} className="photo-card">
               <div className="photo-image-container">
-                <img src={photo.imageUrl} alt="Donated Food" className="photo-image" />
+                <img
+                  src={photo.imageUrl}
+                  alt="Donated Food"
+                  className="photo-image"
+                  onClick={() => setSelectedImage(photo.imageUrl)}
+                />
               </div>
               <div className="photo-info">
                 <p className="uploader-name">
@@ -128,15 +75,12 @@ const Gallery = ({ currentUser }) => {
         </div>
       )}
 
-      {/* <div className="storage-info">
-        <h3>About Photo Storage</h3>
-        <p>Photos are currently stored in your browser's local storage, which means:</p>
-        <ul>
-          <li>They will persist until you clear your browser data</li>
-          <li>They are only visible on this device</li>
-          <li>Storage capacity is limited (approximately 5MB)</li>
-        </ul>
-      </div> */}
+      {/* Image Modal */}
+      {selectedImage && (
+        <div className="modal-overlay" onClick={() => setSelectedImage(null)}>
+          <img src={selectedImage} alt="Full view" className="modal-image" />
+        </div>
+      )}
     </div>
   );
 };
