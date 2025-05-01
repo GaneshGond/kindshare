@@ -20,7 +20,7 @@ function Footer() {
       <div className="footer-content">
         <div className="footer-section about">
           <div className="footer-logo">
-            <span className="logo-icon">🌱</span>
+            <span className="logo-icon">🤝</span>
             <h3>KindShare</h3>
           </div>
           <p>Connecting surplus food with those who need it most. Join our mission to reduce food waste and fight hunger in our communities.</p>

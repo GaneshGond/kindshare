@@ -41,6 +41,8 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import DonorDashboard from "./pages/DonorDashboard";
 import VolunteerDashboard from "./pages/VolunteerDashboard";
+import ChooseDonation from "./pages/ChooseDonation";
+
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -59,6 +61,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/choose-donation" element={<ChooseDonation />} />
+
         <Route
           path="/donor-dashboard"
           element={
@@ -79,6 +83,7 @@ function App() {
             )
           }
         />
+        
       </Routes>
       <Footer />
     </>

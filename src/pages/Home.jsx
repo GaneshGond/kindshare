@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
+import { useNavigate } from "react-router-dom";
+
 
 function Home() {
+  const navigate = useNavigate();
+
   const [isHovered, setIsHovered] = useState(false);
   
   return (
@@ -11,13 +15,15 @@ function Home() {
         <p className="tagline">Donate surplus food and make a difference!</p>
         
         <div className="cta-container">
-          <button 
-            className={`cta-button ${isHovered ? 'pulse' : ''}`}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
-          >
-            Start Donating
-          </button>
+              <button 
+        className={`cta-button ${isHovered ? 'pulse' : ''}`}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        onClick={() => navigate("/choose-donation")}
+      >
+        Start Donating
+      </button>
+
           <button className="learn-more-button">Learn More</button>
         </div>
       </div>
