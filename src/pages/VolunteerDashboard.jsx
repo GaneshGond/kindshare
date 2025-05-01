@@ -262,7 +262,7 @@ const VolunteerDashboard = ({ user }) => {
             e.target.src = "https://via.placeholder.com/100";
           }}
         />
-        <h2>{user.fullName}</h2>
+        <h2>{user.fullName || user.username}</h2>
         <p>Username: {user.username}</p>
       </div>
 
