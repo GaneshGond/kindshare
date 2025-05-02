@@ -7,6 +7,13 @@ const donationSchema = new mongoose.Schema({
   foodType: { type: String, required: true },
   quantity: { type: String, required: true },
   location: { type: String, required: true },
+  status: {
+    type: String,
+    enum: ['pending', 'accepted', 'completed'],
+    default: 'pending'
+  },
+  acceptedBy: { type: String, default: null },
+  acceptedByName: { type: String, default: null },
   createdAt: { type: Date, default: Date.now }
 });
 

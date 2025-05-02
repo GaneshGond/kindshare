@@ -31,7 +31,8 @@
     grid-template-columns: 300px 1fr;
     grid-template-areas:
       "profile upload"
-      "profile inbox";
+      "profile inbox"
+      "profile accepted";
     padding: 2rem;
   }
 }
@@ -168,18 +169,71 @@
   margin-bottom: 1rem;
 }
 
-.inbox-section ul {
+.donation-list {
   list-style: none;
   padding: 0;
 }
 
-.inbox-section li {
-  background: var(--background);
+.donation-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   padding: 1rem;
   margin-bottom: 1rem;
   border-radius: var(--border-radius);
+  background: var(--background);
   border-left: 5px solid var(--secondary-color);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.donation-item.accepted {
+  border-left: 5px solid var(--info);
+  background-color: rgba(66, 153, 225, 0.1);
+}
+
+.donation-info {
+  flex: 1;
+}
+
+.accept-button {
+  padding: 0.5rem 1rem;
+  border: none;
+  background: var(--success);
+  color: white;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  cursor: pointer;
+  transition: var(--transition);
+  margin-left: 1rem;
+}
+
+.accept-button:hover {
+  background: #2c855a;
+  transform: var(--hover-transform);
+}
+
+.accepted-status {
+  padding: 0.5rem 1rem;
+  background: var(--info);
+  color: white;
+  border-radius: var(--border-radius);
+  font-weight: bold;
+  margin-left: 1rem;
+}
+
+/* Accepted Donations Section */
+.accepted-donations-section {
+  background: white;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--card-shadow);
+  grid-area: accepted;
+  margin-top: 0;
+}
+
+.accepted-donations-section h3 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
 }
 
 /* Toast Popup */
@@ -206,20 +260,8 @@
     transform: translateX(0%);
   }
 }
-.toast-popup {
-  position: fixed;
-  top: 20px;
-  right: 20px;
-  background-color: #4caf50;
-  color: white;
-  padding: 12px 20px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-  animation: fadeSlideIn 0.3s ease-out;
-  font-size: 14px;
-}
 
+/* Keep the original toast animation if you prefer this one */
 @keyframes fadeSlideIn {
   from {
     opacity: 0;
