@@ -320,3 +320,159 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+
+/* Add these styles to your DonorDashboard.css file */
+
+/* Success Notification */
+.success-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 350px;
+  background-color: white;
+  border-radius: var(--border-radius);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  border-left: 5px solid var(--success);
+}
+
+.success-notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  padding: 1rem;
+  position: relative;
+}
+
+.notification-icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(56, 161, 105, 0.1);
+  border-radius: 50%;
+  color: var(--success);
+  margin-right: 1rem;
+}
+
+.notification-message {
+  flex: 1;
+}
+
+.notification-message h4 {
+  margin: 0 0 0.25rem;
+  color: var(--text-dark);
+  font-size: 1.1rem;
+}
+
+.notification-message p {
+  margin: 0;
+  color: #718096;
+  font-size: 0.9rem;
+}
+
+.close-notification {
+  background: transparent;
+  border: none;
+  color: #a0aec0;
+  cursor: pointer;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: color 0.2s;
+}
+
+.close-notification:hover {
+  color: var(--text-dark);
+}
+
+.notification-progress {
+  height: 3px;
+  background-color: var(--success);
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  animation: shrink 5s linear forwards;
+}
+
+@keyframes shrink {
+  0% {
+    width: 100%;
+  }
+  100% {
+    width: 0%;
+  }
+}
+
+/* Animation for when donation is submitted */
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(56, 161, 105, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(56, 161, 105, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(56, 161, 105, 0);
+  }
+}
+
+.donation-form button:active {
+  transform: scale(0.95);
+}
+
+.donation-form button:focus {
+  animation: pulse 1.5s;
+}
+
+/* Add a ripple effect to the submit button */
+.donation-form button {
+  position: relative;
+  overflow: hidden;
+}
+
+.donation-form button:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 5px;
+  height: 5px;
+  background: rgba(255, 255, 255, 0.5);
+  opacity: 0;
+  border-radius: 100%;
+  transform: scale(1, 1) translate(-50%);
+  transform-origin: 50% 50%;
+}
+
+.donation-form button:focus:not(:active)::after {
+  animation: ripple 1s ease-out;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0, 0);
+    opacity: 0.5;
+  }
+  20% {
+    transform: scale(25, 25);
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(40, 40);
+  }
+}
