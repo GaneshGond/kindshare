@@ -43,7 +43,7 @@
   
   .login-header h2 {
     font-size: 28px;  
-    color: #91b3d6;
+    color: #acc5df;
     margin: 0;
   }
   
@@ -423,7 +423,7 @@
   @media (max-width: 480px) {
     .login-card {
       padding: 30px 20px;
-      max-width: 95%;
+      max-width: 80%;
       margin: 20px auto;
     }
     
