@@ -142,7 +142,7 @@ body {
 }
 
 .donation-form input[type="text"] {
-  width: 100%;
+  width: 90%;
   padding: 1rem;
   border: 2px solid var(--primary-light);
   border-radius: var(--border-radius);
