@@ -8,35 +8,38 @@ function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [location, setLocation] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
   const [profilePhoto, setProfilePhoto] = useState(null);
   const [error, setError] = useState("");
   const [showSuccess, setShowSuccess] = useState(false);
+  const [passwordVisible, setPasswordVisible] = useState(false);
   const navigate = useNavigate();
 
   const handleRegister = async (e) => {
     e.preventDefault();
     setError("");
-  
+
     if (password !== confirmPassword) {
       setError("Passwords do not match");
       return;
     }
-  
+
     const formData = new FormData();
     formData.append("role", role);
     formData.append("username", username);
     formData.append("password", password);
     formData.append("location", location);
+    formData.append("phoneNumber", phoneNumber);
     formData.append("profilePhoto", profilePhoto);
-  
+
     try {
       const response = await fetch("http://localhost:5000/api/register", {
         method: "POST",
         body: formData,
       });
-  
+
       const result = await response.json();
-  
+
       if (response.ok) {
         setShowSuccess(true);
       } else {
@@ -54,6 +57,20 @@ function Register() {
   const handlePhotoChange = (e) => {
     const file = e.target.files[0];
     setProfilePhoto(file);
+  };
+
+  const validatePhoneNumber = (number) => {
+    const phoneRegex = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
+    return phoneRegex.test(number);
+  };
+
+  const handlePhoneChange = (e) => {
+    const value = e.target.value;
+    setPhoneNumber(value);
+
+    if (validatePhoneNumber(value) || value === "") {
+      // Valid or empty phone number
+    }
   };
 
   if (showSuccess) {
@@ -138,17 +155,41 @@ function Register() {
           </div>
 
           <div className="form-group">
+            <label htmlFor="phoneNumber">Phone Number</label>
+            <div className="input-container">
+              <span className="input-icon">📱</span>
+              <input
+                id="phoneNumber"
+                type="tel"
+                placeholder="Enter your phone number (e.g., 555-123-4567)"
+                value={phoneNumber}
+                onChange={handlePhoneChange}
+                pattern="^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$"
+                title="Phone number format: XXX-XXX-XXXX"
+                required
+              />
+            </div>
+          </div>
+
+          <div className="form-group">
             <label htmlFor="password">Password</label>
             <div className="input-container">
               <span className="input-icon">🔒</span>
               <input
                 id="password"
-                type="password"
+                type={passwordVisible ? "text" : "password"}
                 placeholder="Create a password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 required
               />
+              <span
+                className="toggle-password"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+                style={{ cursor: "pointer", marginLeft: "8px" }}
+              >
+                {passwordVisible ? "👁️" : "👁️‍🗨️"}
+              </span>
             </div>
           </div>
 
@@ -158,12 +199,19 @@ function Register() {
               <span className="input-icon">🔒</span>
               <input
                 id="confirmPassword"
-                type="password"
+                type={passwordVisible ? "text" : "password"}
                 placeholder="Confirm your password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 required
               />
+              <span
+                className="toggle-password"
+                onClick={() => setPasswordVisible(!passwordVisible)}
+                style={{ cursor: "pointer", marginLeft: "8px" }}
+              >
+                {passwordVisible ? "👁️" : "👁️‍🗨️"}
+              </span>
             </div>
           </div>
 

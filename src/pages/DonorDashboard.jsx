@@ -162,6 +162,7 @@ const DonorDashboard = ({ user }) => {
         />
         <h2>{user.fullName || user.username}</h2>
         <p>Username: {user.username}</p>
+        <p>Phone: {user.phoneNumber}</p>
       </div>
 
       <div className="dashboard-content">
@@ -221,7 +222,9 @@ const DonorDashboard = ({ user }) => {
                     {donation.status === "accepted" || donation.status === "completed" ? (
                       <div className="volunteer-info">
                         <span className="volunteer-label">Accepted by:</span>
-                        <span className="volunteer-name">{donation.acceptedByName}</span>
+                        <span className="volunteer-name">
+                          {donation.acceptedByName} ({donation.acceptedByPhone})
+                        </span>
                       </div>
                     ) : (
                       <div className="pending-message">Waiting for a volunteer to accept</div>

@@ -12,7 +12,7 @@
   margin-top: 2rem;
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(135deg, #f5f7fa 0%, #e4efe9 100%);
+  background: linear-gradient(135deg, #1070ff58 0%, #caffe2 100%);
   border-radius: 15px;
   margin-bottom: 60px;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
@@ -126,7 +126,7 @@
 .impact-section {
   text-align: center;
   padding: 60px 20px;
-  background-color: #f7f9fc;
+  background-color: #f1eefc;
   border-radius: 15px;
   margin-bottom: 60px;
 }

@@ -3,6 +3,7 @@ import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
 import DonorBlogs from "./DonorBlogs";
 
+
 function Home() {
   const navigate = useNavigate();
 
@@ -24,7 +25,7 @@ function Home() {
         Start Donating
       </button>
 
-          <button className="learn-more-button">Learn More</button>
+          <button className="learn-more-button" onClick={() => navigate("/learn-more")}>Learn More</button>
         </div>
       </div>
       

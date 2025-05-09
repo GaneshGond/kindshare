@@ -91,13 +91,14 @@
   }
   
   .login-form input {
-    width: 90%;
-    padding: 12px 12px 12px 40px;
+    width: 85%;
+    padding: 12px 40px 12px 40px; /* top/right/bottom/left */
     border: 1px solid #ddd;
     border-radius: 8px;
     font-size: 16px;
     transition: all 0.3s ease;
   }
+  
   
   .login-form input:focus {
     border-color: #2e8b57;

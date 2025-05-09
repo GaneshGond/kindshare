@@ -201,7 +201,7 @@ import VolunteerDashboard from "./pages/VolunteerDashboard";
 import ChooseDonation from "./pages/ChooseDonation";
 import Logout from "./pages/Logout";
 import DonateCash from "./pages/DonateCash"; // Import DonateCash component
-
+import LearnMore from "./pages/LearnMore"; //
 
 function App() {
   const [currentUser, setCurrentUser] = useState(null);
@@ -254,6 +254,8 @@ function App() {
       <Navbar user={currentUser} />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/learn-more" element={<LearnMore />} />
+
         <Route
           path="/login"
           element={currentUser ? <Navigate to="/" replace /> : <Login onLogin={handleLogin} />}

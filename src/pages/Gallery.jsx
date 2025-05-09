@@ -35,10 +35,24 @@ const Gallery = ({ currentUser }) => {
     window.dispatchEvent(new Event('storageUpdate'));
   };
 
+  // const handleDeleteAllPhotos = () => {
+  //   if (window.confirm("Are you sure you want to delete all donated photos?")) {
+  //     localStorage.removeItem('donatedPhotos');
+  //     setPhotos([]);
+  //     window.dispatchEvent(new Event('storageUpdate'));
+  //   }
+  // };
+
   return (
     <div className="gallery-container">
       <h2>Donated Food Gallery</h2>
-      
+{/* 
+      {photos.length > 0 && (
+        <button className="delete-all-btn" onClick={handleDeleteAllPhotos}>
+          Delete All Photos
+        </button>
+      )} */}
+
       {photos.length === 0 ? (
         <p className="no-photos-message">No donations have been uploaded yet.</p>
       ) : (

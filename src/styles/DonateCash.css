@@ -55,7 +55,7 @@
   
   .form-group input,
   .form-group select {
-    padding: 0.8rem 1rem;
+    
     border: 2px solid #e0e0e0;
     border-radius: 8px;
     background-color: #ffffff;
@@ -153,7 +153,7 @@
   
   /* Input validation styling */
   .form-group input:invalid:not(:placeholder-shown) {
-    border-color: #e74c3c;
+    border-color: #f99b91;
   }
   
   .form-group input:valid:not(:placeholder-shown) {
