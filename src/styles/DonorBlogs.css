@@ -1,0 +1,29 @@
+.donor-blogs-section {
+    padding: 40px;
+    background-color: #f9f9f9;
+  }
+  
+  .donor-blog-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .donor-blog-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  }
+  
+  .donor-blog-card h3 {
+    margin: 0 0 10px;
+    color: #333;
+  }
+  
+  .thank-you-note {
+    margin-top: 10px;
+    font-style: italic;
+    color: #2c7a7b;
+  }

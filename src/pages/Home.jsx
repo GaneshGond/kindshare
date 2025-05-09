@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../styles/Home.css";
 import { useNavigate } from "react-router-dom";
-
+import DonorBlogs from "./DonorBlogs";
 
 function Home() {
   const navigate = useNavigate();
@@ -65,6 +65,7 @@ function Home() {
           </div>
         </div>
       </div>
+      <DonorBlogs/>
     </div>
   );
 }

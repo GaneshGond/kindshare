@@ -1,0 +1,167 @@
+.donate-cash-container {
+    max-width: 600px;
+    margin: 2rem auto;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+    background: linear-gradient(to bottom right, #ffffff, #f9f9f9);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .donate-cash-container:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+  }
+  
+  .donate-cash-container h2 {
+    color: #2c3e50;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    position: relative;
+    padding-bottom: 0.75rem;
+  }
+  
+  .donate-cash-container h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    border-radius: 2px;
+  }
+  
+  .cash-donation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .form-group label {
+    font-weight: 600;
+    color: #34495e;
+    font-size: 0.95rem;
+    transition: color 0.2s ease;
+  }
+  
+  .form-group input,
+  .form-group select {
+    padding: 0.8rem 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: #ffffff;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+  }
+  
+  .form-group input:focus,
+  .form-group select:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+    outline: none;
+  }
+  
+  .form-group input:hover,
+  .form-group select:hover {
+    border-color: #bdc3c7;
+  }
+  
+  /* Special styling for amount field */
+  .form-group input[type="number"] {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+    padding: 1rem;
+  }
+  
+  /* Buttons styling */
+  .submit-donation-button,
+  .cancel-button {
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 0.5rem;
+  }
+  
+  .submit-donation-button {
+    background: linear-gradient(to right, #2ecc71, #27ae60);
+    color: white;
+  }
+  
+  .submit-donation-button:hover {
+    background: linear-gradient(to right, #27ae60, #219653);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(46, 204, 113, 0.3);
+  }
+  
+  .submit-donation-button:active {
+    transform: translateY(0);
+  }
+  
+  .cancel-button {
+    background-color: #ecf0f1;
+    color: #7f8c8d;
+    margin-top: 0.7rem;
+  }
+  
+  .cancel-button:hover {
+    background-color: #dfe6e9;
+    color: #34495e;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .donate-cash-container {
+      margin: 1rem;
+      padding: 1.5rem;
+    }
+  }
+  
+  /* Payment method specific styling */
+  .form-group select option {
+    padding: 0.5rem;
+  }
+  
+  /* Focus state visual changes */
+  .form-group:focus-within label {
+    color: #3498db;
+  }
+  
+  /* Animation for form submission */
+  @keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+  }
+  
+  .submit-donation-button:focus {
+    animation: pulse 0.5s ease;
+  }
+  
+  /* Input validation styling */
+  .form-group input:invalid:not(:placeholder-shown) {
+    border-color: #e74c3c;
+  }
+  
+  .form-group input:valid:not(:placeholder-shown) {
+    border-color: #2ecc71;
+  }
+  
+  /* Placeholder styling */
+  .form-group input::placeholder {
+    color: #bdc3c7;
+    opacity: 0.7;
+  }
