@@ -43,7 +43,7 @@ function DonateCash() {
     <div className="donate-cash-container">
       <h2>Donate Cash</h2>
       <form onSubmit={handleSubmit} className="cash-donation-form">
-        <div className="form-group">
+        <div className="form-groupp">
           <label htmlFor="donorName">Full Name:</label>
           <input 
             type="text" 
@@ -56,7 +56,7 @@ function DonateCash() {
           />
         </div>
         
-        <div className="form-group">
+        <div className="form-grouppp">
           <label htmlFor="email">Email:</label>
           <input 
             type="email" 
@@ -69,7 +69,7 @@ function DonateCash() {
           />
         </div>
         
-        <div className="form-group">
+        <div className="form-groupp">
           <label htmlFor="phone">Phone Number:</label>
           <input 
             type="tel" 
@@ -82,7 +82,7 @@ function DonateCash() {
           />
         </div>
         
-        <div className="form-group">
+        <div className="form-groupp">
           <label htmlFor="amount">Amount (INR):</label>
           <input 
             type="number" 
@@ -96,7 +96,7 @@ function DonateCash() {
           />
         </div>
         
-        <div className="form-group">
+        <div className="form-groupp">
           <label htmlFor="paymentMethod">Payment Method:</label>
           <select 
             id="paymentMethod" 
